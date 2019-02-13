@@ -1,3 +1,10 @@
-<p>
-  operation-list works!
-</p>
+<table *ngIf="ops.length > 0">
+  <thead>
+    <h5>Historico</h5>
+  </thead>
+  <tbody>
+    <tr *ngFor="let op of ops">
+      <td>{{ getOperandLabel(op.operand) }} {{ op.operator }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -56,8 +56,4 @@ export class AppComponent {
       }
     );
   }
-
-  getOperandLabel(op: Operands): string {
-    return Operation.getOperandLabel(op);
-  }
 }

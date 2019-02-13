@@ -1,23 +1,16 @@
 <h1>Calculadora</h1>
 
-<input type="number" [(ngModel)]="current"/>
+<input type="number" [(ngModel)]="current" />
 
 <button (click)="onSum()">+</button>
 <button (click)="onSub()">-</button>
 <button (click)="onDiv()">/</button>
 <button (click)="onMul()">x</button>
 
-
-
 <div *ngIf="accumulator > 0">
-  <p>Resultado: <strong>{{accumulator}}</strong></p>
+  <p>
+    Resultado: <strong>{{ accumulator }}</strong>
+  </p>
 </div>
 
-<div *ngIf="operations.length > 0">
-  <h5>Historico</h5>
-  <ul *ngFor="let op of operations">
-    <li>
-      {{ getOperandLabel(op.operand) }} {{ op.operator }}
-    </li>
-  </ul>
-</div>
+<app-operation-list [ops]="operations"></app-operation-list>

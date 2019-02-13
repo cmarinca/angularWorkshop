@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Operands } from '../model/operands';
+import { Operation } from '../model/operation';
 
 @Component({
   selector: 'app-operation-list',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OperationListComponent implements OnInit {
 
-  constructor() { }
+  @Input() ops: string;
+  constructor() {}
 
   ngOnInit() {
+
   }
 
+  getOperandLabel(op: Operands): string {
+    return Operation.getOperandLabel(op);
+  }
 }
