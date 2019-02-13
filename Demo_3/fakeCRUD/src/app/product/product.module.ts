@@ -7,6 +7,7 @@ import { ProductListComponent } from './product-list/product-list.component';
   declarations: [ProductIndexComponent, ProductListComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ProductIndexComponent]
 })
 export class ProductModule { }
