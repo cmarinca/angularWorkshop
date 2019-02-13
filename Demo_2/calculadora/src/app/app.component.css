@@ -1,0 +1,16 @@
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #75a541;
+}
+
+button {
+  background: #014d3b;
+  color: #ffffff;
+  border-style: none;
+  padding: 7px 15px;
+  margin-right: 5px;
+}
+
+input {
+  padding: 5px;
+}
