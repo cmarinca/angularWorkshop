@@ -1,3 +1,30 @@
-<p>
-  product-list works!
-</p>
+<h2 style="color:midnightblue">List of products</h2>
+
+<table>
+  <caption><strong>Items:</strong> {{ products.length }}</caption>
+  <thead style="color:rgb(73, 73, 177)">
+    <tr>
+      <th style="width: 50px;">Id</th>
+      <th>Name</th>
+      <th>Q./Unit</th>
+      <th>Price</th>
+      <th>Inventory</th>
+      <th style="width: 50px;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td style="text-align: center;">
+        <a (click)="onSelected(product)" style="cursor: pointer; color:midnightblue">{{product.productID}}</a>
+      </td>
+      <td>{{product.productName | uppercase }}</td>
+      <td>{{product.quantityPerUnit}}</td>
+      <td style="text-align: center;">{{product.unitPrice | currency}}</td>
+      <td style="text-align: center;">{{product.unitsInStock}}</td>
+      <td style="text-align: center;">
+        <i style="color:rgb(172, 3, 3); cursor: pointer;" class="material-icons">delete_forever</i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
