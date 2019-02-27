@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>TODO List</h1>
+    <div>
+      <input type="text" [(ngModel)]="todoItem" (keyup)="onKeyUp($event)" />
+    </div>
+    <div>
+      <table class="table-container">
+        <tbody>
+          <tr *ngFor="let item of todoList">
+            <td style="text-align: center;">
+              <span
+                *ngIf="!item.completed"
+                (click)="setCompleted(item, true)"
+                class="material-icons"
+                style="color:rgb(118, 125, 128); cursor: pointer;"
+                >check_circle</span
+              >
+              <span
+                *ngIf="item.completed"
+                (click)="setCompleted(item, false)"
+                class="material-icons"
+                style="color:rgb(15, 175, 50); cursor: pointer;"
+                >check_circle</span
+              >
+            </td>
+            <td [class.todo-completed]="item.completed===true">{{ item.itemDesc }}</td>
+            <td style="text-align: center;">
+              <i
+                style="color:rgb(172, 3, 3); cursor: pointer;"
+                class="material-icons"
+                (click)="onDelete(item); $event.stopPropagation()"
+                >delete_forever</i
+              >
+            </td>
+          </tr>
+        </tbody>
+        <caption>
+          <strong>Total: </strong>{{todoList.length}}</caption>
+      </table>
+    </div>
+
+    <button (click)="filterList('')" class="btn btn-light">Todos</button>
+    <button (click)="filterList('activos')" class="btn btn-light">Activos</button>
+    <button (click)="filterList('completos')" class="btn btn-light">Completos</button>
+</div>
