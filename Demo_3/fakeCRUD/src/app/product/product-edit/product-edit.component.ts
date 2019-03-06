@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { IProduct } from 'src/app/model/iproduct';
-import { ModelState } from 'src/app/model/model-state.enum';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { IProduct } from '../../model/iproduct';
+import { ModelState } from '../../model/model-state.enum';
 
 @Component({
   selector: 'app-product-edit',
@@ -10,6 +10,7 @@ import { ModelState } from 'src/app/model/model-state.enum';
 export class ProductEditComponent implements OnInit {
 
   @Input() productInput: IProduct;
+  @Output() saved = new EventEmitter<IProduct>();
   modelState = ModelState;
 
   constructor() { }
@@ -20,6 +21,11 @@ export class ProductEditComponent implements OnInit {
     if (this.productInput) {
       this.productInput.status = (this.productInput.productName && this.productInput.productName.length > 0) ? ModelState.Edit : ModelState.New;
     }
+  }
+
+  onSave(item: IProduct) {
+    console.log('Saving');
+    this.saved.emit(item);
   }
 
 }

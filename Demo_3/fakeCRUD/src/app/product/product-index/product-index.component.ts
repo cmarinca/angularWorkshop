@@ -12,7 +12,7 @@ export class ProductIndexComponent implements OnInit {
 
   products: IProduct[] = [];
   current: IProduct;
-  isCreating: boolean = false;
+  isCreating = false;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -26,7 +26,6 @@ export class ProductIndexComponent implements OnInit {
   onSelected(item: IProduct): void{
     this.current = item;
     this.isCreating = false;
-    //console.log(`onSelected: ${JSON.stringify(this.current)}`);
   }
 
   onCreate(): void {
@@ -40,6 +39,21 @@ export class ProductIndexComponent implements OnInit {
       unitsInStock: 0,
       status: ModelState.New
     };
+  }
+
+  onSaved(savedItem: IProduct): void {
+    if (savedItem) {
+      console.log(`Event Emitter said you saved ${JSON.stringify(savedItem)}`);
+      this.products.push(savedItem);
+      this.isCreating = false;
+    }
+  }
+
+  onDelete(deletedItem: IProduct): void {
+    if(deletedItem) {
+      let index = this.products.indexOf(deletedItem);
+      this.products.splice(index, 1);
+    }
   }
 
 }

@@ -2,6 +2,6 @@
 <p>{{ current | json }}</p>
 
 <div style="display: flex;">
-  <app-product-list [products]="products" (selected)= "onSelected($event)"></app-product-list>
-  <app-product-edit *ngIf="current" [productInput]="current" class="product-edit"></app-product-edit>
+  <app-product-list [products]="products" (selected)= "onSelected($event)" (deleted)="onDelete($event)"></app-product-list>
+  <app-product-edit *ngIf="current" [productInput]="current" class="product-edit" (saved)="onSaved($event)"></app-product-edit>
 </div>

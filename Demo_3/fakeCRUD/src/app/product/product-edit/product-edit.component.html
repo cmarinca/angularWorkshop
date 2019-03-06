@@ -30,5 +30,5 @@
       <input type="text" placeholder="Units in Stock" [(ngModel)]="productInput.unitsInStock" />
     </dd>
   </dl>
-  <button *ngIf="productInput.status === modelState.New" type="submit"> Submit</button>
+  <button *ngIf="productInput.status === modelState.New" (click)="onSave(productInput)" type="submit"> Submit</button>
 </div>

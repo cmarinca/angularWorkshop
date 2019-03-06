@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of products; trackBy: trackByFn()">
       <td style="text-align: center;">
         <a (click)="onSelected(product)" style="cursor: pointer; color:midnightblue">{{product.productID}}</a>
       </td>
@@ -22,7 +22,7 @@
       <td style="text-align: center;">{{product.unitPrice | currency}}</td>
       <td style="text-align: center;">{{product.unitsInStock}}</td>
       <td style="text-align: center;">
-        <i style="color:rgb(172, 3, 3); cursor: pointer;" class="material-icons">delete_forever</i>
+        <i style="color:rgb(172, 3, 3); cursor: pointer;" class="material-icons" (click)="onDelete(product); $event.stopPropagation()">delete_forever</i>
       </td>
     </tr>
   </tbody>
