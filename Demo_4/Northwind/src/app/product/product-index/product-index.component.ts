@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-index',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductIndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ps: ProductService) { }
 
   ngOnInit() {
+    this.ps.searchProducts('queso')
+    .subscribe((products) =>{
+      console.log(products);
+    });
   }
 
 }
