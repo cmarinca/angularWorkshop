@@ -22,9 +22,9 @@ export class ProductService {
       );
   }
 
-  getProduct(id: number): Observable<IProduct[]> {
+  getProduct(id: number): Observable<IProduct> {
     const url = `${this.apiUrl}/?productID=${id}`;
-    return this.http.get<IProduct[]>(url)
+    return this.http.get<IProduct>(url)
       .pipe(
         tap(data => console.log(`getProduct:  ${JSON.stringify(data)}`)),
         catchError(this.handleError)
