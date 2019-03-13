@@ -1,3 +1,37 @@
 <p>
   product-index works!
 </p>
+<input #searchBox id="search-box" (keyup)="search(searchBox.value)"
+placeholder="Search here ..."/>
+
+<!-- <p *ngFor="let p of products0">{{p.productName}}</p>
+<p *ngFor="let p of products | async">{{p.productName}}</p>-->
+
+<table>
+  <thead style="color:rgb(73, 73, 177)">
+    <tr>
+      <th style="width: 50px;">Id</th>
+      <th>Name</th>
+      <th>Q./Unit</th>
+      <th>Price</th>
+      <th>Inventory</th>
+      <th style="width: 50px;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of (products | async)">
+      <td style="text-align: center;">
+        <a [routerLink]="['/product', p.productID, 'edit']" style="cursor: pointer; color:midnightblue">{{p.productID}}</a>
+      </td>
+      <td>{{p.productName}}</td>
+      <td>{{p.quantityPerUnit}}</td>
+      <td style="text-align: center;">{{p.unitPrice | currency}}</td>
+      <td style="text-align: center;">{{p.unitsInStock}}</td>
+      <!-- <td style="text-align: center;">
+        <i style="color:rgb(172, 3, 3); cursor: pointer;" class="material-icons" (click)="onDelete(product); $event.stopPropagation()">delete_forever</i>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
+
+

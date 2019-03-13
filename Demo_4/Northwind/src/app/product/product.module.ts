@@ -6,6 +6,7 @@ import { ProductCreateTemplatedComponent } from './product-create-templated/prod
 import { ProductCreateReactiveComponent } from './product-create-reactive/product-create-reactive.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductRoutingModule } from './product-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProductRoutingModule } from './product-routing.module';
      ProductEditComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
     ProductRoutingModule
   ]
 })
